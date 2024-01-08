@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable QR Code</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+        @media print {
+            /* Hide the header and footer */
+            @page {
+                size: auto;  /* Use the current page size */
+                margin: 0;   /* No margins */
+            }
+
+            body {
+                margin: 0;   /* No margins for the body */
+            }
+
+            /* You can also target specific header and footer elements if they have specific classes or IDs */
+            header, footer {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="qrcode"></div>
+
+    <script>
+        // Get the element where you want to display the QR code
+        var qrcodeElement = document.getElementById("qrcode");
+
+        // Generate QR code with a sample text (replace with your own data)
+        var qrcode = new QRCode(qrcodeElement, {
+            text: "Testing",
+            width: 128,
+            height: 128
+        });
+
+        // Optionally, you can trigger the print dialog automatically
+        window.print();
+    </script>
+
+</body>
+</html>
